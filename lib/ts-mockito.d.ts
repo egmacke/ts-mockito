@@ -34,6 +34,7 @@ export declare function notNull(): any;
 export declare function strictEqual<T>(expectedValue: T): T;
 export declare function match(expectedValue: RegExp | string): any;
 export declare function objectContaining<T>(expectedValue: Partial<T> | T): T;
+export declare function arrayContaining<T>(expectedValue: T | T[]): T[];
 declare const _default: {
     spy: typeof spy;
     mock: typeof mock;
