@@ -11,6 +11,7 @@ import {
   ArgCaptor8,
   ArgCaptor9,
 } from "./capture/ArgCaptor";
+import { AnyEnumMatcher } from "./matcher/type/AnyEnumMatcher";
 import { AnyFunctionMatcher } from "./matcher/type/AnyFunctionMatcher";
 import { AnyNumberMatcher } from "./matcher/type/AnyNumberMatcher";
 import { AnyOfClassMatcher } from "./matcher/type/AnyOfClassMatcher";
@@ -134,6 +135,10 @@ export function anyNumber(): number {
 
 export function anyString(): string {
   return new AnyStringMatcher() as any;
+}
+
+export function anyEnum<T extends string | number>(): T {
+  return new AnyEnumMatcher() as any;
 }
 
 export function anything<T>(): T {
