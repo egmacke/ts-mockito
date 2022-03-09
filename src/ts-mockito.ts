@@ -17,6 +17,7 @@ import { AnyNumberMatcher } from "./matcher/type/AnyNumberMatcher";
 import { AnyOfClassMatcher } from "./matcher/type/AnyOfClassMatcher";
 import { AnyStringMatcher } from "./matcher/type/AnyStringMatcher";
 import { AnythingMatcher } from "./matcher/type/AnythingMatcher";
+import { ArrayContainingMatcher } from "./matcher/type/ArrayContainingMatcher";
 import { BetweenMatcher } from "./matcher/type/BetweenMatcher";
 import { DeepEqualMatcher } from "./matcher/type/DeepEqualMatcher";
 import { MatchingStringMatcher } from "./matcher/type/MatchingStringMatcher";
@@ -167,6 +168,10 @@ export function match(expectedValue: RegExp | string): any {
 
 export function objectContaining<T>(expectedValue: Partial<T> | T): T {
   return new ObjectContainingMatcher(expectedValue) as any;
+}
+
+export function arrayContaining<T>(expectedValue: T | T[]): T[] {
+  return new ArrayContainingMatcher(expectedValue) as any;
 }
 
 // Export default object with all members (ember-browserify doesn't support named exports).
