@@ -16,11 +16,10 @@
     "test:compile-check": "tsc --noEmit -p tsconfig.json",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'"
   },
-  "author": "kuster.maciej@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NagRock/ts-mockito"
+    "url": "https://github.com/egmacke/ts-mockito"
   },
   "keywords": [
     "mock",

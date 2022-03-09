@@ -160,7 +160,7 @@ export function match(expectedValue: RegExp | string): any {
   return new MatchingStringMatcher(expectedValue) as any;
 }
 
-export function objectContaining<T>(expectedValue: Partial<T>): T {
+export function objectContaining<T>(expectedValue: Partial<T> | T): T {
   return new ObjectContainingMatcher(expectedValue) as any;
 }
 

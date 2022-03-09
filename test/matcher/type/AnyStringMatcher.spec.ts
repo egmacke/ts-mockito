@@ -1,56 +1,56 @@
-import {Matcher} from "../../../src/matcher/type/Matcher";
-import {anyString} from "../../../src/ts-mockito";
+import { Matcher } from "../../../src/matcher/type/Matcher";
+import { anyString } from "../../../src/ts-mockito";
 
 describe("AnyStringMatcher", () => {
-    describe("checking if number matches", () => {
-        it("returns false", () => {
-            // given
-            const testObj: Matcher = anyString();
+  describe("checking if number matches", () => {
+    it("returns false", () => {
+      // given
+      const testObj: Matcher = anyString() as unknown as Matcher;
 
-            // when
-            const result = testObj.match(3);
+      // when
+      const result = testObj.match(3);
 
-            // then
-            expect(result).toBeFalsy();
-        });
+      // then
+      expect(result).toBeFalsy();
     });
+  });
 
-    describe("checking if object matches", () => {
-        it("returns false", () => {
-            // given
-            const testObj: Matcher = anyString();
+  describe("checking if object matches", () => {
+    it("returns false", () => {
+      // given
+      const testObj: Matcher = anyString() as unknown as Matcher;
 
-            // when
-            const result = testObj.match({});
+      // when
+      const result = testObj.match({});
 
-            // then
-            expect(result).toBeFalsy();
-        });
+      // then
+      expect(result).toBeFalsy();
     });
+  });
 
-    describe("checking if empty string matches", () => {
-        it("returns true", () => {
-            // given
-            const testObj: Matcher = anyString();
+  describe("checking if empty string matches", () => {
+    it("returns true", () => {
+      // given
+      const testObj: Matcher = anyString() as unknown as Matcher;
 
-            // when
-            const result = testObj.match("");
+      // when
+      const result = testObj.match("");
 
-            // then
-            expect(result).toBeTruthy();
-        });
+      // then
+      expect(result).toBeTruthy();
     });
+  });
 
-    describe("checking if sample string matches", () => {
-        it("returns true", () => {
-            // given
-            const testObj: Matcher = anyString();
+  describe("checking if sample string matches", () => {
+    it("returns true", () => {
+      // given
+      const testObj: Matcher = anyString() as unknown as Matcher;
 
-            // when
-            const result = testObj.match("sampleString");
+      // when
+      const result = testObj.match("sampleString");
 
-            // then
-            expect(result).toBeTruthy();
-        });
+      // then
+      expect(result).toBeTruthy();
     });
+  });
 });
