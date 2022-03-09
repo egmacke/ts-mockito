@@ -26,6 +26,7 @@ export declare function anyOfClass<T extends Object>(expectedClass: new (...args
 export declare function anyFunction(): Function;
 export declare function anyNumber(): number;
 export declare function anyString(): string;
+export declare function anyEnum<T extends string | number>(): T;
 export declare function anything<T>(): T;
 export declare function between(min: number, max: number): any;
 export declare function deepEqual<T>(expectedValue: T): T;
