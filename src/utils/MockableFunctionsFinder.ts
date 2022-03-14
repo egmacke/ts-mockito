@@ -9,18 +9,18 @@
  *     - [.]functionName = function otherName(
  */
 export class MockableFunctionsFinder {
-    private functionNameRegex = /[.\s]([^.\s]+?)(?:\(|\s+=\s+(?:function\s*(?:[^.\s]+?\s*)?)?\()/g;
-    private cleanFunctionNameRegex = /^[.\s]([^.\s]+?)[\s(]/;
-    private excludedFunctionNames: string[] = ["hasOwnProperty", "function"];
+  private functionNameRegex =
+    /[.\s]([^.\s]+?)(?:\(|\s+=\s+(?:function\s*(?:[^.\s]+?\s*)?)?\()/g;
+  private cleanFunctionNameRegex = /^[.\s]([^.\s]+?)[\s(]/;
+  private excludedFunctionNames: string[] = ["hasOwnProperty", "function"];
 
-    public find(code: string): string[] {
-        return (code.match(this.functionNameRegex) || [])
-            .map((match: string) => match.match(this.cleanFunctionNameRegex)[1])
-            .filter((functionName: string) => this.isMockable(functionName))
-            .map((functionName: string) => functionName.indexOf('=') > 0 ? functionName.substr(0, functionName.indexOf('=')) : functionName);
-    }
+  public find(code: string): string[] {
+    return (code.match(this.functionNameRegex) || [])
+      .map((match: string) => match.match(this.cleanFunctionNameRegex)[1])
+      .filter((functionName: string) => this.isMockable(functionName));
+  }
 
-    private isMockable(name: string): boolean {
-        return this.excludedFunctionNames.indexOf(name) < 0;
-    }
+  private isMockable(name: string): boolean {
+    return this.excludedFunctionNames.indexOf(name) < 0;
+  }
 }
