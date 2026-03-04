@@ -1,50 +1,32 @@
-module.exports = function (config) {
+export default function(config) {
     config.set({
-
-        frameworks: ["jasmine", "karma-typescript"],
-
-        files: [
-            "node_modules/babel-polyfill/dist/polyfill.js",
-            "./src/**/*.ts",
-            "./test/**/*.ts"
-        ],
-
-        preprocessors: {
-            "**/*.ts": ["karma-typescript"]
-        },
-
-        karmaTypescriptConfig: {
-            bundlerOptions: {
-                entrypoints: /\.spec\.(ts|tsx)$/,
-                resolve: {
-                    directories: ["src", "node_modules"]
-                }
-            },
-
-            tsconfig: "./tsconfig.json"
-        },
-
-        reporters: ["progress", "mocha"],
-
-        browsers: ["CustomChromeHeadless"],
-
-        mochaReporter: {
-            output: 'minimal'
-        },
-
-        customLaunchers: {
-            'CustomChromeHeadless': {
-                base: 'ChromeHeadless',
-                flags: [
-                    '--no-sandbox',
-                    '--disable-setuid-sandbox'
-                ],
-                debug: true
-            }
-        },
-
-        logLevel: config.LOG_INFO,
-        autoWatch: true,
-        singleRun: false
+      frameworks: ["jasmine", "karma-typescript"],
+  
+      files: [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+      ],
+  
+      preprocessors: {
+        "**/*.ts": ["karma-typescript"]
+      },
+  
+      karmaTypescriptConfig: {
+        tsconfig: "./tsconfig.json",
+        bundlerOptions: {
+          // important: enable bundling for the browser
+          transforms: [
+            require("karma-typescript-es6-transform")() // transpile ES6 modules
+          ],
+          resolve: {
+            directories: ["src", "node_modules"]
+          }
+        }
+      },
+  
+      reporters: ["progress", "karma-typescript"],
+      browsers: ["ChromeHeadless"],
+      logLevel: config.LOG_INFO,
+      singleRun: true
     });
-};
+  };

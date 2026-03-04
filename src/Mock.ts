@@ -20,6 +20,8 @@ export class Mocker {
     private excludedPropertyNames: string[] = ["hasOwnProperty"];
 
     constructor(private clazz: any, public instance: any = {}) {
+        // Add a property to the instance to indicate that it is a tsmockito instance
+        this.instance.__tsmockito = true;
         this.mock.__tsmockitoInstance = this.instance;
         this.mock.__tsmockitoMocker = this;
         if (_.isObject(this.clazz) && _.isObject(this.instance)) {

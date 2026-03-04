@@ -188,6 +188,7 @@ export default {
   anyFunction,
   anyNumber,
   anyString,
+  anyEnum,
   anything,
   between,
   deepEqual,
@@ -195,4 +196,5 @@ export default {
   strictEqual,
   match,
   objectContaining,
+  arrayContaining
 };

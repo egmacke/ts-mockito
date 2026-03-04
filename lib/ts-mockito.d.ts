@@ -48,6 +48,7 @@ declare const _default: {
     anyFunction: typeof anyFunction;
     anyNumber: typeof anyNumber;
     anyString: typeof anyString;
+    anyEnum: typeof anyEnum;
     anything: typeof anything;
     between: typeof between;
     deepEqual: typeof deepEqual;
@@ -55,5 +56,6 @@ declare const _default: {
     strictEqual: typeof strictEqual;
     match: typeof match;
     objectContaining: typeof objectContaining;
+    arrayContaining: typeof arrayContaining;
 };
 export default _default;
